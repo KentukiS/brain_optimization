@@ -9,26 +9,31 @@
     $incNumber = $_GET['incNumber'];
     function getBinary($decimal) {
         $binary = array();
-        $pos = strpos($decimal, ".");
+        if($decimal == "0" || $decimal == "1"){
+           array_push($binary,$decimal);
+           return $binary;
+        } else {
+            $pos = strpos($decimal, ".");
             if($pos === false){
                for (; ; ) {
                     $remainder = $decimal % 2;
                     $decimal = $decimal - $remainder;
                     $decimal = $decimal/2;
                     array_push($binary,$remainder);
+
                     if($decimal == "1"){
                         array_push($binary,1);
                         $binary = array_reverse($binary);
                         break;
                     }
-                    
                 }
            }else {
-                // $decimal = 2;
+                // for float
            }
-
-        // explode(".", $decimal);
-        return $binary;
+           return $binary;
+        }
+        
+        
     }
 ?>
 
@@ -43,7 +48,7 @@
     if( isset($_GET['incNumber']) && is_numeric($_GET['incNumber'])){
         $result = getBinary($incNumber);
         if( isset($result)){
-            echo "digit in binary notation: ".implode($result);
+            echo "decimal in binary notation: ".implode($result);
         } else {
             echo "ERROR: enter the number!";
         }

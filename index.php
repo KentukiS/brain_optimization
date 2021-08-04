@@ -2,37 +2,62 @@
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+		.rounded {
+			counter-reset: li; 
+			list-style: none; 
+			font: 14px "Trebuchet MS", "Lucida Sans";
+			padding: 0;
+			text-shadow: 0 1px 0 rgba(255,255,255,.5);
+			}
+			.rounded a {
+			position: relative;
+			display: block;
+			padding: .4em .4em .4em 2em;
+			margin: .5em 0;
+			background: #DAD2CA;
+			color: #444;
+			text-decoration: none;
+			border-radius: .3em;
+			transition: .3s ease-out;
+			}
+			.rounded a:hover {background: #E9E4E0;}
+			.rounded a:hover:before {transform: rotate(360deg);}
+			.rounded a:before {
+			content: counter(li);
+			counter-increment: li;
+			position: absolute;
+			left: -1.3em;
+			top: 50%;
+			margin-top: -1.3em;
+			background: #8FD4C1;
+			height: 2em;
+			width: 2em;
+			line-height: 2em;
+			border: .3em solid white;
+			text-align: center;
+			font-weight: bold;
+			border-radius: 2em;
+			transition: all .3s ease-out;
+		}
+		.tutorial {
+		    width: 33%;
+		    min-width: 280px;
+		    margin: 0 auto;
+		}
+	</style>
 </head>
 <body>
-<?php
-if( isset($_GET['submit']) )
-{
-    //be sure to validate and clean your variables
-    $val1 = htmlentities($_GET['val1']);
-    $val2 = htmlentities($_GET['val2']);
-   function myFunction($arg_1, $arg_2 = 0)
-	{
-	    echo "Пример функции.\n";
-	    return $arg_1.$arg_2;
-	}
-    //then you can use them in a PHP function. 
-    $result = myFunction($val1, $val2);
-   
-}
-?>
 
-<?php if( isset($result) ) echo $result; //print the result above the form ?>
-
-<form action="" method="get">
-    Inserisci number1: 
-    <input type="text" name="val1" id="val1"></input>
-    <br></br>
-    Inserisci number2:
-    <input type="text" name="val2" id="val2"></input>
-
-    <br></br>
-
-    <input type="submit" name="submit" value="send"></input>
-</form>
+<div class="tutorial">
+	<h1>Домашнее задание</h1>
+	<ol class="rounded">
+	  <li><a href="http://homework/debi.php">1</a></li>
+	  <li><a href="#">2</a></li>
+	  <li><a href="#">3</a></li>
+	  <li><a href="#">4</a></li>
+	  <li><a href="#">5</a></li>
+	</ol>
+</div>
 </body>
 </html>
