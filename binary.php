@@ -18,7 +18,7 @@
 ?>
 
 <form action="" method="get">
-    Enter a digit in decimal notation:
+    Enter a binary in decimal notation:
     <input type="text" name="incNumber" id="incNumber"></input>
     <input type="submit" name="submit" value="send"></input>
     <br></br>
