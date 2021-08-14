@@ -8,7 +8,7 @@
     $incNumber = $_GET['incNumber'];
     function getFibonacciSumm($fibCount) {
     	if((int)$fibCount > 0){
-    		return $fibCount <= 1 ? $fibCount : getFibonacciSumm($fibCount - 1) + getFibonacciSumm($fibCount - 2);
+    		return $fibCount <= 1 ? $fibCount = getFibonacciSumm($fibCount - 1) + getFibonacciSumm($fibCount - 2);
     	} else {
     		return "nope";
     	}
